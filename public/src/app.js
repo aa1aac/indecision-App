@@ -1,4 +1,14 @@
-// checked 6.48
+// checked 6.53
+import Modal from 'react-modal';
+const OptionModal=()=>(
+ <Modal
+ isOpen="true"
+ contentLabel="Selected option"> 
+  <h3>
+  Selected option
+  </h3>
+ </Modal>
+);
 class IndecisionApp extends React.Component {
   constructor(props) {
     super(props);
@@ -19,7 +29,7 @@ class IndecisionApp extends React.Component {
         this.setState(() => ({ options }));
       }
     } catch (e) {
-      // Do nothing at all
+      
     }
   }
   componentDidUpdate(prevProps, prevState) {
@@ -73,6 +83,7 @@ class IndecisionApp extends React.Component {
         <AddOption
           handleAddOption={this.handleAddOption}
         />
+        <OptionModal />
       </div>
     );
   }
