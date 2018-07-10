@@ -1,13 +1,18 @@
 // checked 6.53
+import ReactModal from 'react-modal';
+import React from 'react';
 import Modal from 'react-modal';
-const OptionModal=()=>(
- <Modal
- isOpen="true"
- contentLabel="Selected option"> 
-  <h3>
-  Selected option
-  </h3>
- </Modal>
+
+const OptionModal = (props) => (
+  <Modal
+    isOpen={!!props.selectedOption}
+    onRequestClose={props.handleClearSelectedOption}
+    contentLabel="Selected Option"
+  >
+    <h3>Selected Option</h3>
+    {props.selectedOption && <p>{props.selectedOption}</p>}
+    <button onClick={props.handleClearSelectedOption}>Okay</button>
+  </Modal>
 );
 class IndecisionApp extends React.Component {
   constructor(props) {
